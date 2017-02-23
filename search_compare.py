@@ -42,8 +42,6 @@ print(ordered_sequential_search(test_list, 3))
 print(ordered_sequential_search(test_list, 13))
 
 
-def binary_search_iterative():
-    return
 def binary_search_recursive(a_list, item):
     first = 0
     last = len(a_list) - 1
@@ -66,8 +64,12 @@ print(binary_search_recursive(test_list, 3))
 print(binary_search_recursive(test_list, 13))
 
 
+def binary_search_iterative():
+    return
+
+
 def main():
-    print
+    print 'End.'
 
 
 if __name__ == '__main__':
