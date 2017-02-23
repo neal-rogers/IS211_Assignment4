@@ -4,9 +4,10 @@
 """
 
 
-def insertion_sort():
-def shell_sort():
-def python_sort():
+def sequential_search():
+def ordered_sequential_search():
+def binary_search_iterative():
+def binary_search_recursive():
 
 
 def main():
