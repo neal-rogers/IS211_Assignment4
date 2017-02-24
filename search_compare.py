@@ -82,11 +82,13 @@ test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
 print(binary_search_iterative(a_list, -1))
 
 
-def main():
+def num_gen():
     myrandom = random.sample(xrange(500), 500)
     myrandom = random.sample(xrange(1000), 1000)
     myrandom = random.sample(xrange(10000), 10000)
 
+
+def main():
     seq_timer = Timer("sequential_search()", "from __main__ import sequential_search")
     print 'Sequential Search took %10.7f seconds to run, on average'.format(seq_timer.timeit(number=1000), "seconds")
     ord_timer = Timer("ordered_sequential_search()", "from __main__ import ordered_sequential_search")
