@@ -69,7 +69,7 @@ def binary_search_iterative():
 
 
 def main():
-    print 'End.'
+    print 'Sequential Search took %10.7f seconds to run, on average' % format()
 
 
 if __name__ == '__main__':
