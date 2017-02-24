@@ -45,6 +45,23 @@ print(ordered_sequential_search(test_list, -1))
 
 
 def binary_search_recursive(a_list, item):
+    if len(a_list) == 0:
+        return False
+    else:
+        midpoint = len(a_list) // 2
+    if a_list[midpoint] == item:
+        return True
+    else:
+        if item < a_list[midpoint]:
+            return binary_search_recursive(a_list[:midpoint], item)
+        else:
+            return binary_search_recursive(a_list[midpoint + 1:], item)
+
+test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
+print(binary_search_recursive(test_list, -1))
+
+
+def binary_search_iterative(a_list, item):
     first = 0
     last = len(a_list) - 1
     found = False
@@ -58,28 +75,10 @@ def binary_search_recursive(a_list, item):
                 last = midpoint - 1
     else:
         first = midpoint + 1
-
     return found
 
-test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(binary_search_recursive(test_list, -1))
-
-
-def binary_search_iterative(a_list, item):
-    if len(a_list) == 0:
-        return False
-    else:
-        midpoint = len(a_list) // 2
-    if a_list[midpoint] == item:
-        return True
-    else:
-        if item < a_list[midpoint]:
-            return binary_search_iterative(a_list[:midpoint], item)
-        else:
-            return binary_search_iterative(a_list[midpoint + 1:], item)
-
-test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(binary_search_iterative(a_list, -1))
+test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
+print(binary_search_iterative(test_list, -1))
 
 
 def num_gen():
