@@ -82,10 +82,6 @@ test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
 print(binary_search_iterative(a_list, -1))
 
 
-    first = 0
-    return
-
-
 def main():
     myrandom = random.sample(xrange(500), 500)
     myrandom = random.sample(xrange(1000), 1000)
