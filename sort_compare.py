@@ -4,6 +4,10 @@
 """
 
 
+from timeit import Timer
+import random
+
+
 def insertion_sort(a_list):
     for index in range(1, len(a_list)):
         current_value = a_list[index]
@@ -49,7 +53,12 @@ def python_sort():
 
 
 def main():
-    print
+    insrt_timer = Timer("insertion_sort()", "from __main__ import insertion_sort")
+    print 'Insertion Sort took %10.7f seconds to run, on average'.format(insrt_timer.timeit(number=1000), "seconds")
+    sh_timer = Timer("shell_sort()", "from __main__ import shell_sort")
+    print 'Shell Sort took %10.7f seconds to run, on average'.format(sh_timer.timeit(number=1000), "seconds")
+    gap_timer = Timer("gap_insertion_sort()", "from __main__ import gap_insertion_sort")
+    print 'Gap Insertion Sort took %10.7f seconds to run, on average'.format(gap_timer.timeit(number=1000),"seconds")
 
 
 if __name__ == '__main__':

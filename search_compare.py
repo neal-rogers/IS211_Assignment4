@@ -4,6 +4,10 @@
 """
 
 
+from timeit import Timer
+import random
+
+
 def sequential_search(a_list, item):
     pos = 0
     found = False
@@ -69,7 +73,14 @@ def binary_search_iterative():
 
 
 def main():
-    print 'Sequential Search took %10.7f seconds to run, on average' % format()
+    seq_timer = Timer("sequential_search()", "from __main__ import sequential_search")
+    print 'Sequential Search took %10.7f seconds to run, on average'.format(seq_timer.timeit(number=1000), "seconds")
+    ord_timer = Timer("ordered_sequential_search()", "from __main__ import ordered_sequential_search")
+    print 'Ordered Sequential Search took %10.7f seconds to run, on average'.format(ord_timer.timeit(number=1000), "seconds")
+    brec_timer = Timer("binary_search_recursive()", "from __main__ import binary_search_recursive")
+    print 'Recursive Binary Search took %10.7f seconds to run, on average'.format(brec_timer.timeit(number=1000), "seconds")
+    bit_timer = Timer("binary_search_iterative()", "from __main__ import binary_search_iterative")
+    print 'Iterative Binary Search took %10.7f seconds to run, on average'.format(bit_timer.timeit(number=1000), "seconds")
 
 
 if __name__ == '__main__':
