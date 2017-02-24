@@ -48,8 +48,10 @@ def gap_insertion_sort(a_list, start, gap):
     print(a_list)
 
 
-def python_sort():
-    return
+def python_sort(a_list):
+    a_list.sort()
+
+    return a_list
 
 
 def main():
