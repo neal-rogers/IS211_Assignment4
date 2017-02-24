@@ -53,6 +53,10 @@ def python_sort():
 
 
 def main():
+    myrandom = random.sample(xrange(500), 500)
+    myrandom = random.sample(xrange(1000), 1000)
+    myrandom = random.sample(xrange(10000), 10000)
+
     insrt_timer = Timer("insertion_sort()", "from __main__ import insertion_sort")
     print 'Insertion Sort took %10.7f seconds to run, on average'.format(insrt_timer.timeit(number=1000), "seconds")
     sh_timer = Timer("shell_sort()", "from __main__ import shell_sort")

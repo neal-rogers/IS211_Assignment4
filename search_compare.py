@@ -21,8 +21,7 @@ def sequential_search(a_list, item):
     return found
 
 test_list = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-print(sequential_search(test_list, 3))
-print(sequential_search(test_list, 13))
+print(sequential_search(test_list, -1))
 
 
 def ordered_sequential_search(a_list, item):
@@ -42,8 +41,7 @@ def ordered_sequential_search(a_list, item):
     return found
 
 test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(ordered_sequential_search(test_list, 3))
-print(ordered_sequential_search(test_list, 13))
+print(ordered_sequential_search(test_list, -1))
 
 
 def binary_search_recursive(a_list, item):
@@ -64,15 +62,35 @@ def binary_search_recursive(a_list, item):
     return found
 
 test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(binary_search_recursive(test_list, 3))
-print(binary_search_recursive(test_list, 13))
+print(binary_search_recursive(test_list, -1))
 
 
-def binary_search_iterative():
+def binary_search_iterative(a_list, item):
+    if len(a_list) == 0:
+        return False
+    else:
+        midpoint = len(a_list) // 2
+    if a_list[midpoint] == item:
+        return True
+    else:
+        if item < a_list[midpoint]:
+            return binary_search_iterative(a_list[:midpoint], item)
+        else:
+            return binary_search_iterative(a_list[midpoint + 1:], item)
+
+test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+print(binary_search_iterative(a_list, -1))
+
+
+    first = 0
     return
 
 
 def main():
+    myrandom = random.sample(xrange(500), 500)
+    myrandom = random.sample(xrange(1000), 1000)
+    myrandom = random.sample(xrange(10000), 10000)
+
     seq_timer = Timer("sequential_search()", "from __main__ import sequential_search")
     print 'Sequential Search took %10.7f seconds to run, on average'.format(seq_timer.timeit(number=1000), "seconds")
     ord_timer = Timer("ordered_sequential_search()", "from __main__ import ordered_sequential_search")
