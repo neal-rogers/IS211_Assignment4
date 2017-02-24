@@ -20,8 +20,11 @@ def sequential_search(a_list, item):
 
     return found
 
-test_list = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-print(sequential_search(test_list, -1))
 
-def num_gen():
-    myrandom = random.sample(xrange(500), 500)
+def num_gen(value):
+    myrandom = random.sample(xrange(0), value)
+    return myrandom
+
+def main():
+    new_list = num_gen(100)
+    print(sequential_search(new_list, -1))
