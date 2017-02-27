@@ -4,11 +4,13 @@
 """
 
 
-from timeit import Timer
+import time
 import random
 
 
 def insertion_sort(a_list):
+    start = time.time()
+
     for index in range(1, len(a_list)):
         current_value = a_list[index]
         position = index
@@ -17,23 +19,31 @@ def insertion_sort(a_list):
 
         a_list[position] = current_value
 
+    end = time.time()
+
     a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
     insertion_sort(a_list)
-    print(a_list)
+    return a_list, end-start
 
 
 def shell_sort(a_list):
+    start = time.time()
     sublist_count = len(a_list) // 2
+
     while sublist_count > 0:
         for start_position in range(sublist_count):
             gap_insertion_sort(a_list, start_position, sublist_count)
 
-        print("After increments of size", sublist_count, "The list is", a_list)
-
         sublist_count = sublist_count // 2
+
+    end = time.time()
+
+    return a_list, end-start
 
 
 def gap_insertion_sort(a_list, start, gap):
+    startt = time.time()
+
     for i in range(start + gap, len(a_list), gap):
         current_value = a_list[i]
         position = i
@@ -44,14 +54,19 @@ def gap_insertion_sort(a_list, start, gap):
         a_list[position] = current_value
 
     a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    shell_sort(a_list)
-    print(a_list)
+    end = time.time()
+
+    return a_list, end-startt
 
 
 def python_sort(a_list):
+    start = time.time()
+
     a_list.sort()
 
-    return a_list
+    end = time.time()
+
+    return a_list, end-start
 
 
 def num_gen():

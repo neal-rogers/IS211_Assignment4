@@ -54,22 +54,27 @@ def binary_search_recursive(a_list, item):
     start = time.time()
 
     if len(a_list) == 0:
-        return False
+        found = False
     else:
         midpoint = len(a_list) // 2
     if a_list[midpoint] == item:
-        return True
+        found = True
     else:
         if item < a_list[midpoint]:
             return binary_search_recursive(a_list[:midpoint], item)
         else:
             return binary_search_recursive(a_list[midpoint + 1:], item)
 
+    end = time.time()
+
+    return found, end-start
+
 test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
 print(binary_search_recursive(test_list, -1))
 
 
 def binary_search_iterative(a_list, item):
+    start = time.time()
     first = 0
     last = len(a_list) - 1
     found = False
@@ -83,7 +88,10 @@ def binary_search_iterative(a_list, item):
                 last = midpoint - 1
     else:
         first = midpoint + 1
-    return found
+
+    end = time.time()
+
+    return found, end-start
 
 test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
 print(binary_search_iterative(test_list, -1))
