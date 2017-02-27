@@ -23,9 +23,6 @@ def sequential_search(a_list, item):
 
     return found, end-start
 
-test_list = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-print(sequential_search(test_list, -1))
-
 
 def ordered_sequential_search(a_list, item):
     start = time.time()
@@ -46,9 +43,6 @@ def ordered_sequential_search(a_list, item):
 
     return found, end-start
 
-test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(ordered_sequential_search(test_list, -1))
-
 
 def binary_search_recursive(a_list, item):
     start = time.time()
@@ -68,9 +62,6 @@ def binary_search_recursive(a_list, item):
     end = time.time()
 
     return found, end-start
-
-test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
-print(binary_search_recursive(test_list, -1))
 
 
 def binary_search_iterative(a_list, item):
@@ -93,9 +84,6 @@ def binary_search_iterative(a_list, item):
 
     return found, end-start
 
-test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
-print(binary_search_iterative(test_list, -1))
-
 
 def num_gen(value):
     myrandom = random.sample(xrange(0, value), value)
@@ -110,8 +98,11 @@ def main():
         count = 0
         test_results = {'seq': 0, 'ordseq': 0, 'binrec': 0, 'biniter': 0}
         while count < 100:
-            test_results['insert'].append(se)
-
+            test_results['seq'] sequential_search(new_list, -1)
+            test_results['ordseq'] ordered_sequential_search(new_list, -1)
+            test_results['binrec'] binary_search_recursive(new_list, -1)
+            test_results['biniter'] binary_search_iterative(new_list, -1)
+            count += 1
 
 
 if __name__ == '__main__':

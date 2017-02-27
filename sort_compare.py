@@ -21,8 +21,6 @@ def insertion_sort(a_list):
 
     end = time.time()
 
-    a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    insertion_sort(a_list)
     return a_list, end-start
 
 
@@ -50,10 +48,8 @@ def gap_insertion_sort(a_list, start, gap):
         while position >= gap and a_list[position - gap] > current_value:
             a_list[position] = a_list[position - gap]
             position = position - gap
-
         a_list[position] = current_value
 
-    a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
     end = time.time()
 
     return a_list, end-startt
@@ -82,7 +78,10 @@ def main():
         count = 0
         test_results = {'insert': 0, 'shell': 0, 'gap': 0, 'python': 0}
         while count < 100:
-
+            test_results['insert'] insertion_sort(new_list)
+            test_results['shell'] shell_sort(new_list)
+            test_results['gap'] gap_insertion_sort(new_list)
+            test_results['python'] python_sort(new_list)
 
 
 if __name__ == '__main__':

@@ -30,8 +30,18 @@ def num_gen(value):
 
 
 def main():
-    new_list = num_gen(10000)
-    print(sequential_search(new_list, -1))
+    #new_list = num_gen(10000)
+    #print(sequential_search(new_list, -1))
+
+    list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
+
+    for i in list_tests.values():
+        new_list = num_gen(i)
+        count = 0
+        test_results = {'seq': 0, 'ordseq': 0, 'binrec': 0, 'biniter': 0}
+        while count < 100:
+            test_results['seq'] += sequential_search(new_list, -1)[1]
+            count += 1
 
 
 if __name__ == '__main__':
