@@ -22,9 +22,17 @@ def sequential_search(a_list, item):
 
 
 def num_gen(value):
-    myrandom = random.sample(xrange(0), value)
+    myrandom = random.sample(xrange(0, value), value)
     return myrandom
 
+
 def main():
-    new_list = num_gen(100)
+    new_list = num_gen(10000)
     print(sequential_search(new_list, -1))
+    t1 = (Timer("sequential_search(new_list, -1)",
+                setup="from __main__ import sequential_search, num_gen;new_list=num_gen(100);"))
+    print(t1.timeit(number=1))
+
+
+if __name__ == '__main__':
+    main()

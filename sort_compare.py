@@ -55,6 +55,9 @@ def python_sort(a_list):
 
 
 def num_gen():
+    myrandom = random.sample(xrange(0, value), value)
+    return myrandom
+
     myrandom = random.sample(xrange(500), 500)
     myrandom = random.sample(xrange(1000), 1000)
     myrandom = random.sample(xrange(10000), 10000)
