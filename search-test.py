@@ -4,11 +4,12 @@
 """
 
 
-from timeit import Timer
+import time
 import random
 
 
 def sequential_search(a_list, item):
+    start = time.time()
     pos = 0
     found = False
 
@@ -18,7 +19,9 @@ def sequential_search(a_list, item):
         else:
             pos = pos+1
 
-    return found
+    end = time.time()
+
+    return found, end-start
 
 
 def num_gen(value):
@@ -29,9 +32,6 @@ def num_gen(value):
 def main():
     new_list = num_gen(10000)
     print(sequential_search(new_list, -1))
-    t1 = (Timer("sequential_search(new_list, -1)",
-                setup="from __main__ import sequential_search, num_gen;new_list=num_gen(100);"))
-    print(t1.timeit(number=1))
 
 
 if __name__ == '__main__':
