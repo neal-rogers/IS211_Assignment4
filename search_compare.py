@@ -108,8 +108,9 @@ def main():
     for i in list_tests.values():
         new_list = num_gen(i)
         count = 0
-        test_results = {'insert': 0, 'shell': 0, 'gap': 0, 'python': 0}
+        test_results = {'seq': 0, 'ordseq': 0, 'binrec': 0, 'biniter': 0}
         while count < 100:
+            test_results['insert'].append(se)
 
 
 
