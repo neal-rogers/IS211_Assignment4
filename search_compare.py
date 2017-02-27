@@ -97,16 +97,15 @@ test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
 print(binary_search_iterative(test_list, -1))
 
 
-def num_gen():
+def num_gen(value):
     myrandom = random.sample(xrange(0, value), value)
     return myrandom
 
-    myrandom = random.sample(xrange(500), 500)
-    myrandom = random.sample(xrange(1000), 1000)
-    myrandom = random.sample(xrange(10000), 10000)
-
 
 def main():
+    list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
+
+    for i in list_tests.values():
 
 
 if __name__ == '__main__':

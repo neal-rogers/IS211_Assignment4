@@ -69,22 +69,16 @@ def python_sort(a_list):
     return a_list, end-start
 
 
-def num_gen():
+def num_gen(value):
     myrandom = random.sample(xrange(0, value), value)
     return myrandom
 
-    myrandom = random.sample(xrange(500), 500)
-    myrandom = random.sample(xrange(1000), 1000)
-    myrandom = random.sample(xrange(10000), 10000)
-
 
 def main():
-    insrt_timer = Timer("insertion_sort()", "from __main__ import insertion_sort")
-    print 'Insertion Sort took %10.7f seconds to run, on average'.format(insrt_timer.timeit(number=1000), "seconds")
-    sh_timer = Timer("shell_sort()", "from __main__ import shell_sort")
-    print 'Shell Sort took %10.7f seconds to run, on average'.format(sh_timer.timeit(number=1000), "seconds")
-    gap_timer = Timer("gap_insertion_sort()", "from __main__ import gap_insertion_sort")
-    print 'Gap Insertion Sort took %10.7f seconds to run, on average'.format(gap_timer.timeit(number=1000),"seconds")
+    list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
+
+    for i in list_tests.values():
+
 
 
 if __name__ == '__main__':
