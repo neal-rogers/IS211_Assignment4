@@ -78,6 +78,10 @@ def main():
     list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
 
     for i in list_tests.values():
+        new_list = num_gen(i)
+        count = 0
+        test_results = {'insert': 0, 'shell': 0, 'gap': 0, 'python': 0}
+        while count < 100:
 
 
 
