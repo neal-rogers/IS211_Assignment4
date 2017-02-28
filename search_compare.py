@@ -45,6 +45,7 @@ def ordered_sequential_search(a_list, item):
 
 
 def binary_search_recursive(a_list, item):
+    a_list.sort()
     start = time.time()
 
     if len(a_list) == 0:
@@ -65,6 +66,7 @@ def binary_search_recursive(a_list, item):
 
 
 def binary_search_iterative(a_list, item):
+    a_list.sort()
     start = time.time()
     first = 0
     last = len(a_list) - 1
@@ -95,14 +97,19 @@ def main():
 
     for i in list_tests.values():
         new_list = num_gen(i)
-        count = 0
+        count = 0.0
         test_results = {'seq': 0, 'ordseq': 0, 'binrec': 0, 'biniter': 0}
         while count < 100:
-            test_results['seq'] sequential_search(new_list, -1)
-            test_results['ordseq'] ordered_sequential_search(new_list, -1)
-            test_results['binrec'] binary_search_recursive(new_list, -1)
-            test_results['biniter'] binary_search_iterative(new_list, -1)
+            test_results['seq'] += sequential_search(new_list, -1)
+            test_results['ordseq']+= ordered_sequential_search(new_list, -1)
+            test_results['binrec'] += binary_search_recursive(new_list, -1)
+            test_results['biniter'] += binary_search_iterative(new_list, -1)
             count += 1
+
+        print "Sequential Search took %10.7f seconds to run, on average" %
+        print "Ordered Sequential Search took %10.7f seconds to run, on average" %
+        print "Recursive Binary Search took %10.7f seconds to run, on average" %
+        print "Iterative Binary Search took %10.7f seconds to run, on average" %
 
 
 if __name__ == '__main__':
