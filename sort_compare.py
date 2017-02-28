@@ -9,6 +9,16 @@ import random
 
 
 def insertion_sort(a_list):
+    """
+    Args:
+        a_list (list): List of random integers.
+    Returns:
+        a_list (list): List of random integers.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> insertion_sort(a_list, item)
+        >> False, 0.0001700
+    """
     start = time.time()
 
     for index in range(1, len(a_list)):
@@ -25,6 +35,16 @@ def insertion_sort(a_list):
 
 
 def shell_sort(a_list):
+    """
+    Args:
+        a_list (list): List of random integers.
+    Returns:
+        a_list (list): List of random integers.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> insertion_sort(a_list, item)
+        >> False, 0.0001700
+    """
     start = time.time()
     sublist_count = len(a_list) // 2
 
@@ -40,6 +60,16 @@ def shell_sort(a_list):
 
 
 def gap_insertion_sort(a_list, start, gap):
+    """
+    Args:
+        a_list (list): List of random integers.
+    Returns:
+        a_list (list): List of random integers.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> insertion_sort(a_list, item)
+        >> False, 0.0001700
+    """
     startt = time.time()
 
     for i in range(start + gap, len(a_list), gap):
@@ -56,6 +86,16 @@ def gap_insertion_sort(a_list, start, gap):
 
 
 def python_sort(a_list):
+    """
+    Args:
+        a_list (list): List of random integers.
+    Returns:
+        a_list (list): List of random integers.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> python_sort(a_list, item)
+        >> 0.0001700
+    """
     start = time.time()
 
     a_list.sort()
@@ -66,11 +106,40 @@ def python_sort(a_list):
 
 
 def num_gen(value):
+    """
+    Args:
+        value (int): List of random integers.
+    Returns:
+        myrandom (list): List of random integers.
+    Example:
+        >> num_gen(value)
+        >>
+    """
     myrandom = random.sample(xrange(0, value), value)
     return myrandom
 
 
 def main():
+    """
+    Args:
+        None.
+    Returns:
+        None.
+    Example:
+        >>
+        >> Insertion Sort took  0.0001800 seconds to run, on average
+            Shell Sort took  0.0000000 seconds to run, on average
+            Gap Insertion Sort took  0.0000100 seconds to run, on average
+            Python Sort took  0.0000000 seconds to run, on average
+            Insertion Sort took  0.0017900 seconds to run, on average
+            Shell Sort took  0.0000000 seconds to run, on average
+            Gap Insertion Sort took  0.0000000 seconds to run, on average
+            Python Sort took  0.0000200 seconds to run, on average
+            Insertion Sort took  0.0000900 seconds to run, on average
+            Shell Sort took  0.0000000 seconds to run, on average
+            Gap Insertion Sort took  0.0000000 seconds to run, on average
+            Python Sort took  0.0000000 seconds to run, on average
+    """
     list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
 
     for i in list_tests.values():
@@ -85,6 +154,7 @@ def main():
             count += 1
 
         print "Insertion Sort took %10.7f seconds to run, on average" % (test_results['insert'] / 100)
+        print "Shell Sort took %10.7f seconds to run, on average" %  (test_results['shell'] / 100)
         print "Gap Insertion Sort took %10.7f seconds to run, on average" %  (test_results['gap'] / 100)
         print "Python Sort took %10.7f seconds to run, on average" %  (test_results['python'] / 100)
 

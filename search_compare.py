@@ -15,6 +15,7 @@ def sequential_search(a_list, item):
         item (int): Value to search for (-1).
     Returns:
         found (bool): Boolean value to indicate match for item.
+        end-start (float): Time difference from start to end of execution.
     Example:
         >> sequential_search(a_list, item)
         >> False, 0.0001700
@@ -35,6 +36,17 @@ def sequential_search(a_list, item):
 
 
 def ordered_sequential_search(a_list, item):
+    """
+    Args:
+        a_list (list): List of random integers.
+        item (int): Value to search for (-1).
+    Returns:
+        found (bool): Boolean value to indicate match for item.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> ordered_sequential_search(a_list, item)
+        >> False, 0.0001700
+    """
     start = time.time()
     pos = 0
     found = False
@@ -55,6 +67,17 @@ def ordered_sequential_search(a_list, item):
 
 
 def binary_search_recursive(a_list, item):
+    """
+    Args:
+        a_list (list): List of random integers.
+        item (int): Value to search for (-1).
+    Returns:
+        found (bool): Boolean value to indicate match for item.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> binary_search_recursive(a_list, item)
+        >> False, 0.0001700
+    """
     a_list.sort()
     start = time.time()
 
@@ -77,6 +100,17 @@ def binary_search_recursive(a_list, item):
 
 
 def binary_search_iterative(a_list, item):
+    """
+    Args:
+        a_list (list): List of random integers.
+        item (int): Value to search for (-1).
+    Returns:
+        found (bool): Boolean value to indicate match for item.
+        end-start (float): Time difference from start to end of execution.
+    Example:
+        >> binary_search_iterative(a_list, item)
+        >> False, 0.0001700
+    """
     a_list.sort()
     start = time.time()
     first = 0
@@ -99,11 +133,40 @@ def binary_search_iterative(a_list, item):
 
 
 def num_gen(value):
+    """
+    Args:
+        value (int): List of random integers.
+    Returns:
+        myrandom (list): List of random integers.
+    Example:
+        >> num_gen(value)
+        >>
+    """
     myrandom = random.sample(xrange(0, value), value)
     return myrandom
 
 
 def main():
+    """
+    Args:
+        None.
+    Returns:
+        None.
+    Example:
+        >>
+        >> Sequential Search took  0.0001800 seconds to run, on average
+            Ordered Sequential Search took  0.0000000 seconds to run, on average
+            Recursive Binary Search took  0.0000100 seconds to run, on average
+            Iterative Binary Search took  0.0000000 seconds to run, on average
+            Sequential Search took  0.0017900 seconds to run, on average
+            Ordered Sequential Search took  0.0000000 seconds to run, on average
+            Recursive Binary Search took  0.0000000 seconds to run, on average
+            Iterative Binary Search took  0.0000200 seconds to run, on average
+            Sequential Search took  0.0000900 seconds to run, on average
+            Ordered Sequential Search took  0.0000000 seconds to run, on average
+            Recursive Binary Search took  0.0000000 seconds to run, on average
+            Iterative Binary Search took  0.0000000 seconds to run, on average
+    """
     list_tests = {'t500': 500, 't1000': 1000, 't10000': 10000}
 
     for i in list_tests.values():
