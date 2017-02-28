@@ -78,14 +78,15 @@ def main():
         count = 0
         test_results = {'insert': 0, 'shell': 0, 'gap': 0, 'python': 0}
         while count < 100:
-            test_results['insert'] += insertion_sort(new_list)
-            test_results['shell'] += shell_sort(new_list)
-            test_results['gap'] += gap_insertion_sort(new_list)
-            test_results['python'] += python_sort(new_list)
+            test_results['insert'] += insertion_sort(new_list)[1]
+            test_results['shell'] += shell_sort(new_list)[1]
+            test_results['gap'] += gap_insertion_sort(new_list)[1]
+            test_results['python'] += python_sort(new_list)[1]
+            count += 1
 
-        print "Insertion Sort took %10.7f seconds to run, on average" %
-        print "Gap Insertion Sort took %10.7f seconds to run, on average" %
-        print "Python Sort took %10.7f seconds to run, on average" %
+        print "Insertion Sort took %10.7f seconds to run, on average" % (test_results['insert'] / 100)
+        print "Gap Insertion Sort took %10.7f seconds to run, on average" %  (test_results['gap'] / 100)
+        print "Python Sort took %10.7f seconds to run, on average" %  (test_results['python'] / 100)
 
 
 if __name__ == '__main__':

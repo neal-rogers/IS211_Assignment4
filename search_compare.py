@@ -9,6 +9,16 @@ import random
 
 
 def sequential_search(a_list, item):
+    """
+    Args:
+        a_list (list): List of random integers.
+        item (int): Value to search for (-1).
+    Returns:
+        found (bool): Boolean value to indicate match for item.
+    Example:
+        >> sequential_search(a_list, item)
+        >> False, 0.0001700
+    """
     start = time.time()
     pos = 0
     found = False
@@ -52,13 +62,14 @@ def binary_search_recursive(a_list, item):
         found = False
     else:
         midpoint = len(a_list) // 2
+
     if a_list[midpoint] == item:
         found = True
     else:
         if item < a_list[midpoint]:
-            return binary_search_recursive(a_list[:midpoint], item)
+            return binary_search_iterative(a_list[:midpoint], item)
         else:
-            return binary_search_recursive(a_list[midpoint + 1:], item)
+            return binary_search_iterative(a_list[midpoint + 1:], item)
 
     end = time.time()
 
@@ -79,8 +90,8 @@ def binary_search_iterative(a_list, item):
         else:
             if item < a_list[midpoint]:
                 last = midpoint - 1
-    else:
-        first = midpoint + 1
+            else:
+                first = midpoint + 1
 
     end = time.time()
 
@@ -97,19 +108,19 @@ def main():
 
     for i in list_tests.values():
         new_list = num_gen(i)
-        count = 0.0
+        count = 0
         test_results = {'seq': 0, 'ordseq': 0, 'binrec': 0, 'biniter': 0}
         while count < 100:
-            test_results['seq'] += sequential_search(new_list, -1)
-            test_results['ordseq']+= ordered_sequential_search(new_list, -1)
-            test_results['binrec'] += binary_search_recursive(new_list, -1)
-            test_results['biniter'] += binary_search_iterative(new_list, -1)
+            test_results['seq'] += sequential_search(new_list, -1)[1]
+            test_results['ordseq'] += ordered_sequential_search(new_list, -1)[1]
+            test_results['binrec'] += binary_search_recursive(new_list, -1)[1]
+            test_results['biniter'] += binary_search_iterative(new_list, -1)[1]
             count += 1
 
-        print "Sequential Search took %10.7f seconds to run, on average" % test_results['seq'] / 100
-        print "Ordered Sequential Search took %10.7f seconds to run, on average" % test_results['ordseq'] / 100
-        print "Recursive Binary Search took %10.7f seconds to run, on average" % test_results['binrec'] / 100
-        print "Iterative Binary Search took %10.7f seconds to run, on average" % test_results['biniter'] / 100
+        print "Sequential Search took %10.7f seconds to run, on average" % (test_results['seq'] / 100)
+        print "Ordered Sequential Search took %10.7f seconds to run, on average" % (test_results['ordseq'] / 100)
+        print "Recursive Binary Search took %10.7f seconds to run, on average" % (test_results['binrec'] / 100)
+        print "Iterative Binary Search took %10.7f seconds to run, on average" % (test_results['biniter'] / 100)
 
 
 if __name__ == '__main__':
