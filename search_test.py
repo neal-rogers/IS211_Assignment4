@@ -64,6 +64,9 @@ def main():
             test_results['ordseq'] += ordered_sequential_search(new_list, -1)[1]
             count += 1
 
+        print "Sequential Search took %10.7f seconds to run, on average" % test_results['seq'] // 100
+        print "Ordered Sequential Search took %10.7f seconds to run, on average" % test_results['ordseq'] // 100
+
 
 if __name__ == '__main__':
     main()
